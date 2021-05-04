@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quiz Addition</title>
+</head>
+<body>
+
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul class=flashes>
+    {% for message in messages %}
+      <li>{{ message }}</li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+
+{% if error %}
+    <p class=error><strong>Error:</strong> {{ error }}
+  {% endif %}
+
+<h1><center><bold>{{ message }}</bold></center></h1>
+<form action="/quiz/add" width="400" method="post">
+    <table>
+        <tr>
+            <td width="300">Quiz Subject:</td>
+            <td width="500"><input type="text" name="subject"></td>
+        </tr>
+                <tr>
+            <td width="300">Quiz Date:</td>
+            <td width="500"><input type="date" name="date"></td>
+        </tr>
+                <tr>
+            <td width="300">Quiz Number of Questions:</td>
+            <td width="500"><input type="text" name="numquestions"></td>
+        </tr>
+            <td rowspan="2"><input type="submit" value="Enter Quiz"></td>
+        </tr>
+    </table>
+</form>
+
+
+</body>
+</html>

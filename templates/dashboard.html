@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+
+    <style>
+        table, th, td {
+          border: 1px solid black;
+          border-collapse: collapse;
+        }
+        td {text-align:right;}
+    </style>
+</head>
+<body>
+<H1>Add Information</H1>
+<a href="{{ url_for('add_student') }}">Add Student</a>
+</br>
+<a href="{{ url_for('add_quiz') }}">Add Quiz</a>
+</br>
+<a href="{{ url_for('addscore') }}">Add Quiz Results</a>
+
+<H2>Current Information</H2>
+<table>
+<tr>
+    <th>Student ID:</th>
+    <th>Name:</th>
+    <th>Quiz Link</th>
+</tr>
+{% for item in student %}
+<tr>
+    <td>{{item[0]}}</td>
+    <td>{{item[1]}}</td>
+    <td><a href="student/{{item[0]}}" >Quizes</a></td>
+</tr>
+    </br>
+{% endfor %}
+
+</table>
+<table>
+<tr>
+    <th>Quiz ID:</th>
+    <th>Subject:</th>
+    <th>Date:</th>
+    <th># of Questions:</th>
+</tr>
+{% for item in quiz %}
+<tr>
+    <td>{{item[0]}}</td>
+    <td>{{item[1]}}</td>
+    <td>{{item[2]}}</td>
+    <td>{{item[3]}}</td>
+</tr>
+    </br>
+{% endfor %}
+</table>
+</body>
+</html>

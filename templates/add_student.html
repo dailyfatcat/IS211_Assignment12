@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul class=flashes>
+    {% for message in messages %}
+      <li>{{ message }}</li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+
+{% if error %}
+    <p class=error><strong>Error:</strong> {{ error }}
+  {% endif %}
+
+<h1><center><bold>{{ message }}</bold></center></h1>
+<form action="/student/add" width="400" method="post">
+    <table>
+        <tr>
+            <td width="100">Student Name:</td>
+            <td width="300"><input type="text" name="stuname"></td>
+        </tr>
+            <td rowspan="2"><input type="submit" value="Enter Student"></td>
+        </tr>
+    </table>
+</form>
+
+
+
+</body>
+</html>
